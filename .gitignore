@@ -1,0 +1,16 @@
+.libs
+*.swp
+*.slo
+*.la
+*.lo
+*~
+*.o
+print.txt
+.rsync
+*.tar.gz
+dist
+*.obj
+*.exe
+appears
+appears[12]
+
