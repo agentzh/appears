@@ -17,13 +17,13 @@ appears appears2: ddebug.h
 test: all
 	-./appears
 	@echo ===========================
-	-./appears abc.nosuchfile
+	-./appears no-such-file
 	@echo ===========================
-	-./appears invalid.txt
+	-./appears samples/invalid.txt
 	@echo ===========================
-	-./appears2 good2.txt
+	-./appears2 samples/good2.txt
 	@echo ===========================
-	-./appears1 good1.txt
+	-./appears1 samples/good1.txt
 	@echo ===========================
-	-./appears1 good2.txt
+	-./appears1 samples/good2.txt
 
