@@ -1,0 +1,23 @@
+all: appears.exe appears2.exe appears1.exe
+
+appears.exe: appears.cpp ddebug.h
+    cl /nologo /EHsc /O2 /o $@ appears.cpp
+
+appears2.exe: appears.cpp ddebug.h
+    cl /D APPEARS_SEQSIZE=2L /nologo /EHsc /O2 /o $@ appears.cpp
+
+appears1.exe: appears.cpp ddebug.h
+    cl /D APPEARS_SEQSIZE=1L /nologo /EHsc /O2 /o $@ appears.cpp
+
+test: all
+    @echo =====================
+    -appears.exe
+    @echo =====================
+    -appears.exe no-such-file
+    @echo =====================
+    -appears2.exe good.txt
+    @echo =====================
+    -appears1.exe good1.txt
+    @echo =====================
+    -appears1.exe good.txt
+

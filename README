@@ -1,0 +1,26 @@
+[ Win32 ]
+
+To build everything:
+
+   nmake -f NMakefile
+
+To run the little test suite:
+
+   nmake -f NMakefile test
+
+[ Linux ]
+
+To build everything:
+
+    make
+
+To run the little test suite:
+
+    make test
+
+The "appear" program is for 15-char sequences, "appear2" for 2-char
+sequences, and "appear1" for 1-char sequences.
+
+-agentzh
+
+
