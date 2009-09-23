@@ -1,4 +1,12 @@
+This project should run on Win32 with Visual C++ and g++ for Linux.
+Other flavors of systems should work as well, but need some tweaks
+in the Makefile.
+
 [ Win32 ]
+
+You should have Visual C++ 2002 or better installed and have run
+vcvars32.bat to set the environments required to run command-line
+VC compiler "cl.exe".
 
 To build everything:
 
@@ -7,6 +15,9 @@ To build everything:
 To run the little test suite:
 
    nmake -f NMakefile test
+
+The expected testing output is similar to the output of the Linux
+version given below.
 
 [ Linux ]
 
@@ -21,6 +32,38 @@ To run the little test suite:
 The "appear" program is for 15-char sequences, "appear2" for 2-char
 sequences, and "appear1" for 1-char sequences.
 
--agentzh
+The expected testing output is like:
 
+    ./appears
+    No input file specified.
+    make: [test] Error 1 (ignored)
+    ===========================
+    ./appears no-such-file
+    ERROR: Failed to open input file no-such-file for reading: No such file or directory
+    make: [test] Error 1 (ignored)
+    ===========================
+    ./appears samples/invalid.txt
+    ERROR: File samples/invalid.txt: line 2: Invalid character found: 'D' (0x44)
+    make: [test] Error 1 (ignored)
+    ===========================
+    ./appears2 samples/good2.txt
+    INFO: Using a bit array of length 16 (sequence length: 2).
+    INFO: Searching missing combinations of sequences...
+      TG (index 8)
+      TA (index 9)
+      TT (index 10)
+    For total 3 missing combinations found.
+    ===========================
+    ./appears1 samples/good1.txt
+    INFO: Using a bit array of length 4 (sequence length: 1).
+    INFO: Searching missing combinations of sequences...
+      T (index 2)
+    For total 1 missing combinations found.
+    ===========================
+    ./appears1 samples/good2.txt
+    INFO: Using a bit array of length 4 (sequence length: 1).
+    INFO: Searching missing combinations of sequences...
+    All combinations have appeared.
+
+-agentzh
 

@@ -8,14 +8,7 @@
 #include <cstdlib>
 #include <bitset>
 
-#ifdef MSVC
-#define SIZE_T_FMT "Id"
-#else
-#define SIZE_T_FMT "zd"
-#endif
-
 /* here we allow overriding on the g++ command line */
-
 #ifndef APPEARS_SEQSIZE
 #define APPEARS_SEQSIZE 15L /* sequence string size */
 #endif
@@ -47,9 +40,9 @@ int main (int argc, char* argv[]) {
         return 1;
     }
 
-    printf("INFO: Using a bit array of length %"
-            SIZE_T_FMT " (sequence length: %ld).\n",
-            TABLESIZE,
+    printf("INFO: Using a bit array of length %lu"
+            " (sequence length: %ld).\n",
+            (unsigned long)TABLESIZE,
             APPEARS_SEQSIZE);
     //exit(1);
 
@@ -66,9 +59,9 @@ int main (int argc, char* argv[]) {
 static bool parse_seq_file (const char* fname) {
     FILE *infile;
     char c;
-    long long unsigned lineno = 1L;
+    unsigned long lineno = 1L;
     index_t index;
-    long unsigned chars_seen = 0L;
+    unsigned long chars_seen = 0L;
 
     if (NULL == (infile = fopen(fname, "r"))) {
         fprintf(stderr,
@@ -169,7 +162,7 @@ void index2str(unsigned long index, char* buf) {
  * to find 0 bits and print out the corresponding
  * character sequences */
 void search_missing_combinations () {
-    long unsigned missing_combs = 0;
+    unsigned long missing_combs = 0;
     char buf[APPEARS_SEQSIZE + 1];
     for (unsigned long i = 0; i < TABLESIZE; i++) {
         if (!BitTable.test(i)) {

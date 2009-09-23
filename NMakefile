@@ -15,7 +15,7 @@ test: all
 	@echo =====================
 	-appears.exe no-such-file
 	@echo ===========================
-	-./appears samples/invalid.txt
+	-appears.exe samples/invalid.txt
 	@echo =====================
 	-appears2.exe samples/good2.txt
 	@echo =====================
