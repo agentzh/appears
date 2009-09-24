@@ -35,7 +35,7 @@ std::bitset<TABLESIZE> BitTable;
 /* forward declarations */
 static bool parse_seq_file (const char* fname);
 static void search_missing_combinations ();
-void index_to_tokens(unsigned long index, char* buf);
+static void index_to_tokens(unsigned long index, char* buf);
 
 int main (int argc, char* argv[]) {
     const char* fname;
