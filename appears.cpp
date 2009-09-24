@@ -1,4 +1,8 @@
 #define DDEBUG 0
+
+#define _FILE_OFFSET_BITS 64
+#define _LARGEFILE_SOURCE
+
 #include "ddebug.h"
 
 #include <cstdio>
@@ -34,12 +38,16 @@ static void search_missing_combinations ();
 void index_to_tokens(unsigned long index, char* buf);
 
 int main (int argc, char* argv[]) {
+    const char* fname;
     if (argc < 2) {
         fprintf(stderr, "No input file specified.\n");
         return 1;
     }
+    fname = argv[1]; 
 
-    if ( ! parse_seq_file(argv[1]) ) {
+    printf("INFO: Reading file %s...\n", fname);
+
+    if ( ! parse_seq_file(fname) ) {
         return 1;
     }
 
@@ -47,12 +55,9 @@ int main (int argc, char* argv[]) {
             " (sequence length: %ld).\n",
             (unsigned long)TABLESIZE,
             APPEARS_SEQSIZE);
-    //exit(1);
 
     printf("INFO: Searching missing combinations of sequences...\n");
     search_missing_combinations();
-
-    //system("sleep 360");
 
     return 0;
 }

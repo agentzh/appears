@@ -1,4 +1,4 @@
-all: appears appears2 appears1
+all: appears appears2 appears1 t/gensample
 
 appears: appears.cpp
 	#rm -f *.o
@@ -13,6 +13,9 @@ appears1: appears.cpp
 	g++ -D 'APPEARS_SEQSIZE=1L' -O2 -Wall -Wno-unused-value -g $< -o $@
 
 appears appears2: ddebug.h
+
+t/gensample: t/gensample.c
+	gcc -O2 -Wall -o $@ $<
 
 test: all
 	-./appears
