@@ -37,7 +37,8 @@ static bool parse_seq_file (const char* fname);
 static void search_missing_combinations ();
 static void index_to_tokens (unsigned long index, char* buf);
 
-int main (int argc, char* argv[]) {
+int
+main (int argc, char* argv[]) {
     const char* fname;
     if (argc < 2) {
         fprintf(stderr, "ERROR: No input file specified.\n");
@@ -65,8 +66,9 @@ int main (int argc, char* argv[]) {
 }
 
 /* parse_seq_file: read in the sequence stream and set
- * the global BigTable variable accordingly. */
-static bool parse_seq_file (const char* fname) {
+ * the global BitTable variable accordingly. */
+bool
+parse_seq_file (const char* fname) {
     FILE* infile;
     char c;
     unsigned long lineno = 1L;
@@ -148,7 +150,8 @@ static bool parse_seq_file (const char* fname) {
 
 /* index_to_tokens: decode the binary index numerals to G/A/T/C
  * token sequences */
-void index_to_tokens (unsigned long index, char* buf) {
+void
+index_to_tokens (unsigned long index, char* buf) {
     for (unsigned long i = 0; i < APPEARS_SEQSIZE; i++) {
         int encoded_token =
             (index >> (i * BITS_PER_TOKEN)) & TOKEN_MASK;
@@ -175,7 +178,8 @@ void index_to_tokens (unsigned long index, char* buf) {
 /* search_missing_combinations: traverse the BitTable
  * to find 0 bits and print out the corresponding
  * character sequences */
-void search_missing_combinations () {
+void
+search_missing_combinations () {
     unsigned long missing_combs = 0;
     char buf[APPEARS_SEQSIZE + 1];
     for (unsigned long i = 0; i < TABLESIZE; i++) {
