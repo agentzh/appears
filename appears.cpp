@@ -67,7 +67,7 @@ int main (int argc, char* argv[]) {
 /* parse_seq_file: read in the sequence stream and set
  * the global BigTable variable accordingly. */
 static bool parse_seq_file (const char* fname) {
-    FILE *infile;
+    FILE* infile;
     char c;
     unsigned long lineno = 1L;
     index_t index;
@@ -148,7 +148,7 @@ static bool parse_seq_file (const char* fname) {
 
 /* index_to_tokens: decode the binary index numerals to G/A/T/C
  * token sequences */
-void index_to_tokens(unsigned long index, char* buf) {
+void index_to_tokens (unsigned long index, char* buf) {
     for (unsigned long i = 0; i < APPEARS_SEQSIZE; i++) {
         int encoded_token =
             (index >> (i * BITS_PER_TOKEN)) & TOKEN_MASK;
