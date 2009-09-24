@@ -40,23 +40,25 @@ void index_to_tokens(unsigned long index, char* buf);
 int main (int argc, char* argv[]) {
     const char* fname;
     if (argc < 2) {
-        fprintf(stderr, "No input file specified.\n");
+        fprintf(stderr, "ERROR: No input file specified.\n");
         return 1;
     }
-    fname = argv[1]; 
+    fname = argv[1];
 
-    printf("INFO: Reading file %s...\n", fname);
+    fprintf(stderr, "INFO: Reading file %s...\n", fname);
 
     if ( ! parse_seq_file(fname) ) {
         return 1;
     }
 
-    printf("INFO: Using a bit array of length %lu"
+    fprintf(stderr,
+            "INFO: Using a bit array of length %lu"
             " (sequence length: %ld).\n",
             (unsigned long)TABLESIZE,
             APPEARS_SEQSIZE);
 
-    printf("INFO: Searching missing combinations of sequences...\n");
+    fprintf(stderr,
+            "INFO: Searching missing combinations of sequences...\n");
     search_missing_combinations();
 
     return 0;

@@ -26,6 +26,8 @@ To run the little test suite:
 The expected testing output is similar to the output of the Linux
 version given below.
 
+(Note that large files beyond 4GB have not tested on Win32.)
+
 [ Linux ]
 
 To build everything:
@@ -42,7 +44,7 @@ sequences, and "appear1" for 1-char sequences.
 The expected testing output is like:
 
     ./appears
-    No input file specified.
+    ERROR: No input file specified.
     make: [test] Error 1 (ignored)
     ===========================
     ./appears no-such-file
