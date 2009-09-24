@@ -23,7 +23,7 @@ int main (int argc, char* argv[]) {
 
     for (i = 0; i < size; i++) {
         index = rand() % sizeof(tokens);
-        fputc(tokens[index], stdout);
+        putc(tokens[index], stdout);
     }
 
     return 0;

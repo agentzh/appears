@@ -86,7 +86,7 @@ parse_seq_file (const char* fname) {
     for (;;) {
         bool found_token = false;
 
-        c = fgetc(infile);
+        c = getc(infile);
         if (EOF == c) {
             if (ferror(infile)) {
                 fprintf(stderr, "ERROR: Failed to read from file %s:"
