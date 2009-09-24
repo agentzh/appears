@@ -1,4 +1,11 @@
-This project should run on Win32 with Visual C++ and g++ for Linux.
+This program aims to solve the simple bioinformatical problem
+presented in the following PerlChina mailing list threads:
+
+  http://groups.google.com/group/perlchina/browse_thread/thread/a019034ad1dc584e
+
+  http://groups.google.com/group/perlchina/browse_thread/thread/e8d38aa1a2d8d356
+
+It should run on Win32 with Visual C++ and g++ for Linux.
 Other flavors of systems should work as well, but need some tweaks
 in the Makefile.
 
